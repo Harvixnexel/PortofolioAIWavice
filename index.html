@@ -137,7 +137,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="text-white hover:text-[#3ABEF9] transition-colors duration-200 font-medium">Beranda</a>
                 <a href="#solutions" class="text-white hover:text-[#3ABEF9] transition-colors duration-200 font-medium">Solusi</a>
-                <a href="#testimonials" class="text-white hover:text-[#3ABEF9] transition-colors duration-200 font-medium">Testimoni</a>
+                <a href="#Question" class="text-white hover:text-[#3ABEF9] transition-colors duration-200 font-medium">Pertanyaan</a>
             </div>
             
             <!-- Mobile Menu Button -->
@@ -160,7 +160,7 @@
         <div class="flex flex-col space-y-6 mt-8">
             <a href="#home" class="text-white hover:text-[#3ABEF9] transition-colors duration-200 text-lg">Beranda</a>
             <a href="#solutions" class="text-white hover:text-[#3ABEF9] transition-colors duration-200 text-lg">Solusi</a>
-            <a href="#testimonials" class="text-white hover:text-[#3ABEF9] transition-colors duration-200 text-lg">Testimoni</a>
+            <a href="#Question" class="text-white hover:text-[#3ABEF9] transition-colors duration-200 text-lg">Pertanyaan</a>
         </div>
     </div>
     
@@ -345,125 +345,9 @@
  </div>
     </div>
 </section>
-
-<!-- Testimonials Section -->
-<section id="testimonials" class="py-16 px-4 md:px-8 bg-black">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Testimoni</h2>
-    <p class="text-gray-300 max-w-2xl mx-auto mb-8">
-      Dengar langsung dari para client kami
-    </p>
-
-    <!-- Slider Wrapper -->
-    <div class="relative flex items-center justify-center w-full md:w-3/4 mx-auto">
-      <!-- Left Button (Desktop Only) -->
-      <button
-        id="prevBtn"
-        class="hidden md:flex absolute left-[-2.5rem] bg-black text-white p-3 rounded-full shadow-[0_0_6px_rgba(255,255,255,0.6)] hover:bg-[#1a1a1a] transition"
-      >
-        &#10094;
-      </button>
-
-      <!-- Slider Container -->
-      <div class="overflow-hidden aspect-video w-full bg-black rounded-lg">
-        <div class="slider flex transition-transform duration-700 ease-in-out w-full h-full">
-          <div class="flex-shrink-0 w-full h-full">
-            <img src="image/1.png" class="w-full h-full object-cover" alt="Testimoni 1" />
-          </div>
-          <div class="flex-shrink-0 w-full h-full">
-            <img src="image/2.png" class="w-full h-full object-cover" alt="Testimoni 2" />
-          </div>
-          <div class="flex-shrink-0 w-full h-full">
-            <img src="image/3.png" class="w-full h-full object-cover" alt="Testimoni 3" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Button (Desktop Only) -->
-      <button
-        id="nextBtn"
-        class="hidden md:flex absolute right-[-2.5rem] bg-black text-white p-3 rounded-full shadow-[0_0_6px_rgba(255,255,255,0.6)] hover:bg-[#1a1a1a] transition"
-      >
-        &#10095;
-      </button>
-    </div>
-
-    <!-- Dots -->
-    <div class="flex justify-center mt-6 space-x-2">
-      <span class="dot w-3 h-3 rounded-full bg-gray-500 cursor-pointer transition"></span>
-      <span class="dot w-3 h-3 rounded-full bg-gray-500 cursor-pointer transition"></span>
-      <span class="dot w-3 h-3 rounded-full bg-gray-500 cursor-pointer transition"></span>
-    </div>
-  </div>
-
-  <!-- Slider Script -->
-  <script>
-    const slider = document.querySelector(".slider");
-    const slides = document.querySelectorAll(".slider > div");
-    const dots = document.querySelectorAll(".dot");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    let currentIndex = 0;
-    let startX = 0;
-    let isDragging = false;
-
-    function updateSlider(index) {
-      slider.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(dot => {
-        dot.classList.remove("bg-white");
-        dot.classList.add("bg-gray-500");
-      });
-      dots[index].classList.remove("bg-gray-500");
-      dots[index].classList.add("bg-white");
-    }
-
-    // Navigation
-    prevBtn?.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateSlider(currentIndex);
-    });
-
-    nextBtn?.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateSlider(currentIndex);
-    });
-
-    // Dots navigation
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => {
-        currentIndex = i;
-        updateSlider(currentIndex);
-      });
-    });
-
-    // Swipe Support (Mobile)
-    slider.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-    });
-
-    slider.addEventListener("touchmove", (e) => {
-      if (!isDragging) return;
-      const diff = startX - e.touches[0].clientX;
-      if (diff > 50) {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider(currentIndex);
-        isDragging = false;
-      } else if (diff < -50) {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlider(currentIndex);
-        isDragging = false;
-      }
-    });
-
-    slider.addEventListener("touchend", () => (isDragging = false));
-
-    updateSlider(currentIndex);
-  </script>
-</section>
     
 <!-- FAQ Section -->
-<section class="py-16 px-4 md:px-8 bg-black">
+<section id="Question" class="py-16 px-4 md:px-8 bg-black">
   <div class="max-w-4xl mx-auto">
     <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Pertanyaan Umum</h2>
 
